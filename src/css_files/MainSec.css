@@ -1,0 +1,76 @@
+.MainSec {
+    height: 100%;
+    width: 100%;
+    background-color: yellow;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input {
+    height: 5vh;
+    width: 23.5vw;
+    border: 2px solid purple;
+    border-radius: 5px;
+    text-align: center;
+}
+
+::-webkit-input-placeholder {
+    text-align: center;
+}
+
+:-moz-placeholder {
+    text-align: center;
+}
+
+.Generate {
+    border: none;
+    color: white;
+    background-color: blue;
+    height: 4.2vh;
+    width: 8.3vw;
+    border-radius: 10px;
+    font-size: 1.05vw;
+}
+
+.Checker{
+   
+    height: 4vh;
+    width: 8vw;
+    border-radius: 10px;
+    font-size: 1vw;
+}
+
+@media (max-width:640px) {
+    input {
+        height: 4vh;
+        width: 45vw;
+        border: 2px solid purple;
+        border-radius: 5px;
+        text-align: center;
+    }
+
+    .score {
+        font-size: 8vw;
+    }
+
+    .Generate {
+        border: none;
+        color: white;
+        background-color: blue;
+        height: 4vh;
+        width: 35vw;
+        border-radius: 10px;
+        font-size: 4.5vw;
+    }
+    
+    .Checker{
+       
+        border-radius: 10px;
+        font-size: 4.5vw;
+        height: 4vh;
+        width: 35vw;
+    }
+}

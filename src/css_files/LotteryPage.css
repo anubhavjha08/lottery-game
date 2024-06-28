@@ -1,0 +1,24 @@
+.container-card {
+    background-color: #fff;
+    border: 4px solid black;
+    border-radius: 40px;
+    width: 50vw;
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+   
+}
+
+@media (max-width:640px) {
+    .container-card {
+        background-color: #fff;
+        border: 4px solid black;
+        border-radius: 40px;
+        width: 80vw;
+        height: 60vh;
+        display: flex;
+        justify-content: center;
+    }
+}
