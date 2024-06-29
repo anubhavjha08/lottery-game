@@ -8,6 +8,13 @@
     flex-direction: column;
     gap: 10px;
 }
+.Signal{
+    font-size: 2vw;
+}
+.score {
+    font-size: 3vw;
+}
+
 
 input {
     height: 5vh;
@@ -28,12 +35,13 @@ input {
 .Generate {
     border: none;
     color: white;
-    background-color: blue;
-    height: 4.2vh;
+  background-color: blue;
+    height: 4.3vh;
     width: 8.3vw;
     border-radius: 10px;
     font-size: 1.05vw;
 }
+
 
 .Checker{
    
@@ -44,6 +52,27 @@ input {
 }
 
 @media (max-width:640px) {
+
+    .MainSec {
+        height: 100%;
+        width: 100%;
+        background-color: yellow;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 10px;
+    }
+   
+    .Signal1{
+        font-size: 7vw;
+    }
+    .Signal2{
+        font-size: 5vw;
+    }
+    
+   
+   
     input {
         height: 4vh;
         width: 45vw;
@@ -64,6 +93,11 @@ input {
         width: 35vw;
         border-radius: 10px;
         font-size: 4.5vw;
+        font-weight: 700;
+    }
+
+    .instruction{
+        font-size: 5vw;
     }
     
     .Checker{
@@ -72,5 +106,8 @@ input {
         font-size: 4.5vw;
         height: 4vh;
         width: 35vw;
+        background-color: red;
+        color: white;
+        border: none;
     }
 }

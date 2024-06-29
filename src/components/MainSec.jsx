@@ -7,6 +7,7 @@ export default function MainSec({ setIsWinner, IsWinner }) {
   const [RandomVal, setRandomVal] = useState(null);
   const [ScoreCounter, setScoreCounter] = useState(0);
   const [Signal, setSignal] = useState(true);
+  const [isClicked, setisClicked] = useState(false);
 
   let userInput = (event) => {
     setUserGuess(event.target.value);
@@ -20,6 +21,7 @@ export default function MainSec({ setIsWinner, IsWinner }) {
     setInstruction("Now, Input you guess below");
     setIsWinner(false);
     setSignal(true);
+    setisClicked(true);
   };
 
   let checkLottery = () => {
@@ -27,10 +29,12 @@ export default function MainSec({ setIsWinner, IsWinner }) {
       console.log("Right");
       setIsWinner(true);
       scoreCounter();
+      setisClicked(false);
     } else {
       console.log("wrong!");
       setScoreCounter(0);
       setSignal(false);
+      setisClicked(false);
     }
   };
 
@@ -39,12 +43,15 @@ export default function MainSec({ setIsWinner, IsWinner }) {
   };
   return (
     <div className="MainSec">
-      <p>{Signal ? null : "Wrong Guess, Press Generate to play again!"}</p>
+      <p className="Signal1">{Signal ? null : "Wrong Guess:)"}</p>
+      <p className="Signal2">{Signal ? null : "Press Generate to play again!"}</p>
       <h3 className="score">Score : {ScoreCounter}</h3>
 
-      <button className="Generate" onClick={randomValueGenerator}>
-        Generate
-      </button>
+      {isClicked ? null : (
+        <button className="Generate" onClick={randomValueGenerator}>
+          Generate
+        </button>
+      )}
       <p className="instruction">{Instruction}</p>
       <input
         type="text"
@@ -54,9 +61,11 @@ export default function MainSec({ setIsWinner, IsWinner }) {
         onChange={userInput}
         value={UserGuess}
       />
-      <button className="Checker" onClick={checkLottery}>
-        Check Guess
-      </button>
+      {isClicked ? (
+        <button className="Checker" onClick={checkLottery}>
+          Check Guess
+        </button>
+      ) : null}
       <p>{IsWinner ? "Press Generate to play again :)" : "Never Give up!"}</p>
     </div>
   );
