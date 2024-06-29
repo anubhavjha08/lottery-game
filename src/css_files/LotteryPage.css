@@ -9,7 +9,7 @@
     flex-direction: column;
     align-items: center;
     margin-top: 15vh;
-   
+
 }
 
 @media (max-width:640px) {
@@ -21,5 +21,6 @@
         height: 60vh;
         display: flex;
         justify-content: center;
+        margin-top: 12vh;
     }
 }

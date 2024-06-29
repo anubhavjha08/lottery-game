@@ -17,7 +17,6 @@ export default function MainSec({ setIsWinner, IsWinner }) {
     setUserGuess("");
     let x = Math.floor(Math.random() * 10 + 1);
     setRandomVal(x);
-    console.log(x);
     setInstruction("Now, Input you guess below");
     setIsWinner(false);
     setSignal(true);
@@ -26,15 +25,15 @@ export default function MainSec({ setIsWinner, IsWinner }) {
 
   let checkLottery = () => {
     if (parseInt(UserGuess) === RandomVal) {
-      console.log("Right");
       setIsWinner(true);
       scoreCounter();
       setisClicked(false);
+      setInstruction("Press Generate to Start");
     } else {
-      console.log("wrong!");
       setScoreCounter(0);
       setSignal(false);
       setisClicked(false);
+      setInstruction("Press Generate to Start");
     }
   };
 
@@ -44,7 +43,9 @@ export default function MainSec({ setIsWinner, IsWinner }) {
   return (
     <div className="MainSec">
       <p className="Signal1">{Signal ? null : "Wrong Guess:)"}</p>
-      <p className="Signal2">{Signal ? null : "Press Generate to play again!"}</p>
+      <p className="Signal2">
+        {Signal ? null : "Press Generate to play again!"}
+      </p>
       <h3 className="score">Score : {ScoreCounter}</h3>
 
       {isClicked ? null : (
