@@ -1,6 +1,8 @@
 import { useState } from "react";
 import "../css_files/MainSec.css";
 import christmasStars from "../assets/christmas-stars.png";
+import AudioPlayer from "./AudioPlayer";
+import heartbeatAudio from "../assets/heartbeat.mp3";
 
 export default function MainSec({ setIsWinner, IsWinner }) {
   const [UserGuess, setUserGuess] = useState("");
@@ -10,6 +12,7 @@ export default function MainSec({ setIsWinner, IsWinner }) {
   const [TurnCounter, setTurnCounter] = useState(0);
   const [Signal, setSignal] = useState(true);
   const [isClicked, setisClicked] = useState(false);
+  const [heartbeatPlaying, setHeartbeatPlaying] = useState(false);
 
   let userInput = (event) => {
     setUserGuess(event.target.value);
@@ -18,16 +21,17 @@ export default function MainSec({ setIsWinner, IsWinner }) {
   let randomValueGenerator = () => {
     setUserGuess("");
     let x = Math.floor(Math.random() * 10 + 1);
-    // console.log(x);
     setRandomVal(x);
-    setInstruction("Now, Input you guess below");
+    setInstruction("Now, Input your guess below");
     setIsWinner(false);
     setSignal(true);
     setisClicked(true);
+    setHeartbeatPlaying(true); // Start playing heartbeat sound
     turnCounter();
   };
 
   let checkLottery = () => {
+    setHeartbeatPlaying(false); // Stop heartbeat sound
     if (parseInt(UserGuess) === RandomVal) {
       setIsWinner(true);
       scoreCounter();
@@ -44,9 +48,11 @@ export default function MainSec({ setIsWinner, IsWinner }) {
   let scoreCounter = () => {
     setScoreCounter((scoreCounter) => scoreCounter + 1);
   };
+
   let turnCounter = () => {
     setTurnCounter((turnCounter) => turnCounter + 1);
   };
+
   return (
     <div className="MainSec">
       <p className="Turncounter">Turn: {TurnCounter}</p>
@@ -76,7 +82,7 @@ export default function MainSec({ setIsWinner, IsWinner }) {
           type="text"
           name=""
           id=""
-          placeholder="1-10(inclusive)"
+          placeholder="1-10 (inclusive)"
           onChange={userInput}
           value={UserGuess}
         />
@@ -87,7 +93,11 @@ export default function MainSec({ setIsWinner, IsWinner }) {
           Check Guess
         </button>
       ) : null}
+
       <p>{IsWinner ? null : "Never Give up!"}</p>
+
+      {/* Play heartbeat sound only when Generate button is clicked */}
+      {isClicked && heartbeatPlaying && <AudioPlayer src={heartbeatAudio} autoplay />}
     </div>
   );
 }

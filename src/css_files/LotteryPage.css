@@ -1,27 +1,44 @@
 /* Container Card Styles */
 .container-card {
-    width: 50vw; /* 50% of the viewport width */
-    height: 60vh; /* 60% of the viewport height */
-    border-radius: 40px; /* Rounded corners */
-    display: flex; /* Flex container */
-    flex-direction: column; /* Arrange children in a column */
-    justify-content: center; /* Center content horizontally */
-    align-items: center; /* Center content vertically */
-    margin-top: 15vh; /* Top margin space */
-    
-    outline: 2px solid transparent; /* Transparent outline */
-    outline-offset: -10px; /* Adjusts the width of the outline */
-    background-image: linear-gradient(to bottom right, #ccc, #fff); /* Gradient background for border effect */
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    transition: all 0.3s ease; /* Smooth transition for responsive changes */
-  }
-  
-  /* Responsive Design for Small Screens */
-  @media (max-width: 640px) {
+    width: 50vw;
+    /* 50% of the viewport width */
+    height: 60vh;
+    /* 60% of the viewport height */
+    border-radius: 40px;
+    /* Rounded corners */
+    display: flex;
+    /* Flex container */
+    flex-direction: column;
+    /* Arrange children in a column */
+    justify-content: center;
+    /* Center content horizontally */
+    align-items: center;
+    /* Center content vertically */
+    margin-top: 15vh;
+    /* Top margin space */
+
+    /* ----------------------------------------------------------------------------NEED TO LEARN ABOUT IT------------------------------ */
+
+    outline: 2px solid transparent;
+    /* Transparent outline */
+    outline-offset: -10px;
+    /* Adjusts the width of the outline */
+    background-image: linear-gradient(to bottom right, #ccc, #fff);
+    /* Gradient background for border effect */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow for depth */
+    transition: all 0.3s ease;
+    /* Smooth transition for responsive changes */
+}
+
+/* Responsive Design for Small Screens */
+@media (max-width: 640px) {
     .container-card {
-      width: 85vw; /* 85% of the viewport width on smaller screens */
-      height: 65vh; /* 65% of the viewport height on smaller screens */
-      margin-top: 12vh; /* Adjusted top margin space on smaller screens */
+        width: 85vw;
+        /* 85% of the viewport width on smaller screens */
+        height: 65vh;
+        /* 65% of the viewport height on smaller screens */
+        margin-top: 12vh;
+        /* Adjusted top margin space on smaller screens */
     }
-  }
-  
+}
