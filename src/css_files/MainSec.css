@@ -1,16 +1,23 @@
 .MainSec {
     height: 100%;
     width: 100%;
-    background-color: yellow;
+    background-image: linear-gradient(to right, #75e3eddd 0%, #fee140 100%);
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     gap: 10px;
 }
-.Signal{
-    font-size: 2vw;
+
+.Signal1 {
+    font-size: 1.5vw;
+    font-weight: 600;
 }
+
+.Signal2 {
+    font-size: 1.4vw;
+}
+
 .score {
     font-size: 3vw;
 }
@@ -35,20 +42,62 @@ input {
 .Generate {
     border: none;
     color: white;
-  background-color: blue;
+    background-color: blue;
     height: 4.3vh;
-    width: 8.3vw;
+    width: 8.8vw;
     border-radius: 10px;
     font-size: 1.05vw;
+    cursor: pointer;
+    display: flex;
+    justify-content: inherit;
+    align-items: center;
+    transition: background-color 0.3s, transform 0.3s;
+    /* Added transitions for smooth effects */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Added box-shadow for depth */
+}
+
+.Generate img {
+    width: 20px;
+    height: 20px;
+
+    filter: invert(100%);
+}
+
+.Generate:hover {
+    background-color: #0056b3;
+    /* Darker blue on hover */
+    transform: scale(1.05);
+    /* Slightly increase the size on hover */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    /* Enhance shadow on hover */
+}
+
+.Generate:active {
+    background-color: #003f7f;
+    /* Even darker blue on click */
+    transform: scale(1);
+    /* Reset size on click */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Reduce shadow on click */
 }
 
 
-.Checker{
-   
-    height: 4vh;
-    width: 8vw;
+.Turncounter {
+    font-size: 2vw;
+    font-weight: 600;
+}
+
+.Checker {
+
+    height: 4.2vh;
+    width: 8.2vw;
     border-radius: 10px;
     font-size: 1vw;
+    background-color: red;
+    color: white;
+    cursor: pointer;
+    border: none;
 }
 
 @media (max-width:640px) {
@@ -63,16 +112,20 @@ input {
         flex-direction: column;
         gap: 10px;
     }
-   
-    .Signal1{
+
+    .Signal1 {
         font-size: 7vw;
     }
-    .Signal2{
+
+    .Signal2 {
         font-size: 5vw;
     }
-    
-   
-   
+
+    .Turncounter {
+        font-size: 6vw;
+        font-weight: 600;
+    }
+
     input {
         height: 4vh;
         width: 45vw;
@@ -86,22 +139,20 @@ input {
     }
 
     .Generate {
-        border: none;
-        color: white;
-        background-color: blue;
         height: 4vh;
         width: 35vw;
-        border-radius: 10px;
         font-size: 4.5vw;
         font-weight: 700;
     }
 
-    .instruction{
+
+
+    .instruction {
         font-size: 5vw;
     }
-    
-    .Checker{
-       
+
+    .Checker {
+
         border-radius: 10px;
         font-size: 4.5vw;
         height: 4vh;

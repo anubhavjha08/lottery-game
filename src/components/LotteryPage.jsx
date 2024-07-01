@@ -8,7 +8,7 @@ export default function LotteryPage() {
   const [IsWinner, setIsWinner] = useState(false);
   return (
     <div className="container-card">
-      <Header />
+      <Header IsWinner={IsWinner} />
       <MainSec setIsWinner={setIsWinner} IsWinner={IsWinner} />
       <Footer IsWinner={IsWinner} />
     </div>
