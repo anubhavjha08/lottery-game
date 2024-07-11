@@ -3,6 +3,7 @@ import "../css_files/MainSec.css";
 import christmasStars from "../assets/christmas-stars.png";
 import AudioPlayer from "./AudioPlayer";
 import heartbeatAudio from "../assets/heartbeat.mp3";
+import { v4 as uuidv4 } from "uuid";
 
 export default function MainSec({ setIsWinner, IsWinner }) {
   const [UserGuess, setUserGuess] = useState("");
@@ -13,6 +14,7 @@ export default function MainSec({ setIsWinner, IsWinner }) {
   const [Signal, setSignal] = useState(true);
   const [isClicked, setisClicked] = useState(false);
   const [heartbeatPlaying, setHeartbeatPlaying] = useState(false);
+  const [uniqueId, setUniqueId] = useState(null);
 
   let userInput = (event) => {
     setUserGuess(event.target.value);
@@ -28,6 +30,7 @@ export default function MainSec({ setIsWinner, IsWinner }) {
     setisClicked(true);
     setHeartbeatPlaying(true); // Start playing heartbeat sound
     turnCounter();
+    uniqueIdGen();
   };
 
   let checkLottery = () => {
@@ -53,8 +56,13 @@ export default function MainSec({ setIsWinner, IsWinner }) {
     setTurnCounter((turnCounter) => turnCounter + 1);
   };
 
+  let uniqueIdGen = () => {
+    setUniqueId((uniqueId) => uuidv4());
+  };
+
   return (
     <div className="MainSec">
+      <p className="UniqueId">{uniqueId}</p>
       <p className="Turncounter">Turn: {TurnCounter}</p>
       <p className="Signal1">{Signal ? null : "Wrong Guess:)"}</p>
       <p className="Signal2">{Signal ? null : `Right Ans: ${RandomVal}`}</p>
@@ -97,7 +105,9 @@ export default function MainSec({ setIsWinner, IsWinner }) {
       <p>{IsWinner ? null : "Never Give up!"}</p>
 
       {/* Play heartbeat sound only when Generate button is clicked */}
-      {isClicked && heartbeatPlaying && <AudioPlayer src={heartbeatAudio} autoplay />}
+      {isClicked && heartbeatPlaying && (
+        <AudioPlayer src={heartbeatAudio} autoplay />
+      )}
     </div>
   );
 }
